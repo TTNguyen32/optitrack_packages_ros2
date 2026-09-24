@@ -12,7 +12,7 @@ def generate_launch_description():
 
     server_address_arg = DeclareLaunchArgument(
         'server_address',
-        default_value=''
+        default_value='192.168.50.141'
     )
     server_address = LaunchConfiguration('server_address')
 
@@ -31,6 +31,7 @@ def generate_launch_description():
         output='screen',
         emulate_tty=True
     )
-
+    
+    ld.add_action(server_address_arg)
     ld.add_action(optitrack_wrapper)
     return ld
